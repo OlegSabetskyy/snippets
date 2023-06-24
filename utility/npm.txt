@@ -1,0 +1,10 @@
+- npm init -y // init npm project
+- npm i <package_name>
+- npm i -g <package_name> // install globally
+- npm i -D <package_name> // install dev dependency
+
+
+useful packages
+----------------
+- nodemon
+
