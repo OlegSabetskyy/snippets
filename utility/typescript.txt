@@ -1,0 +1,72 @@
+let test: number = 5;
+let test2: string = "Hello world";
+let test3: boolean = true;
+let test4: any = "abcd";
+let test5: string;
+let test6: number[] = [1,2,3,4];
+let test7: object = {};
+let test8: object[] = [{}, {}];
+let test9: any[] = [1, true, {}];
+let test10: [number, string, boolean] = [1, "abc", true];
+let test11: [number, string][] = [ [1, "hello"], [2, "world"] ];
+let test12: string | number = "hello world";
+enum Test13 {
+	Up, 
+	Down,
+	Left,
+	Right
+};
+let test14: { id: number, name: string } = { id: 1, name: "Name" };
+type Test15 = { id: number, name: string };
+let test16: Test15 = { id: 15, name: "Hello" };
+let test17: any = 1;
+let test18 = <number>test18;
+let test19 = test17 as number;
+function test20(num1: number, num2: number): number { return num1 + num2; }
+function test21(): void {}
+interface Test22 { readonly id: number, name: string, age?: number };
+let test23: Test22 = { id: 1, name: "Name" };
+interface Test24 { (num1: number, num2: number): number }
+function test25: Test24 = (num1: number, num2: number): number => num1 + num2;
+interface Test26 = { id: number, name: string, test(): string };
+class Test27 implements Test26 {
+	private id: number; // only accessible within this class
+	public name: string; // accessible by everybody
+	protected test: string; // only accessible within this class & classes that extend this one
+
+	constructor() {
+		this.id = 1;
+		this.name = "a";
+		this.test = "b";
+	},
+	test() {}
+}
+class Test28 extends Test27 {
+	position: string;
+	
+	constructor() {
+		super();
+		this.position = "position";
+	}
+}
+function test29<T>(a: T[]): T[] { // T works as a placeholder, this way the array can be only number or only string, not both at the same type
+	return [].concat(a);
+}
+let test30 = test29<number>([1,2,3,4]);
+let test31 = test29<string>(["a", "b", "c"]);
+
+
+
+React example
+-------------------------
+export interface Props {
+	title: string,
+	color?: string
+}
+const Header = (props: Props) => {
+	return (
+		<header style={{color: props.color ? props.color : "blue"}}><h1>{{props.title}}</h1></header>
+	);
+}
+
+export default Header;
